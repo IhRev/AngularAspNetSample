@@ -1,0 +1,6 @@
+@AngularAspNetSample.Server_HostAddress = http://localhost:5171
+
+GET {{AngularAspNetSample.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
