@@ -3,9 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularAspNetSample.Server", "AngularAspNetSample.Server\AngularAspNetSample.Server.csproj", "{F97545AB-0549-4279-A1DD-E581A2A4027D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularAspNetSample.Server", "AngularAspNetSample.Server\AngularAspNetSample.Server.csproj", "{F97545AB-0549-4279-A1DD-E581A2A4027D}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "angularaspnetsample.client", "angularaspnetsample.client\angularaspnetsample.client.esproj", "{F2B1F89B-45AB-43BF-8F8B-3B713FB37D62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Students.Domain", "Students.Domain\Students.Domain.csproj", "{B86898FA-2A89-493B-BB86-58CBA8EFAF59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Students.DataAccess", "Students.DataAccess\Students.DataAccess.csproj", "{D0048791-051D-46D9-96D9-2984E414A0B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Students.Core", "Students.Core\Students.Core.csproj", "{AECFF322-4EC1-497F-ABBA-01D73C6C7B14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Students.IoC", "Students.IoC\Students.IoC.csproj", "{32CCE192-EEAE-409F-94DE-A4FFA4BE9D76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Students.Application", "Students.Application\Students.Application.csproj", "{23D2B96F-489C-48AB-B290-C04FBDE3315B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +33,26 @@ Global
 		{F2B1F89B-45AB-43BF-8F8B-3B713FB37D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2B1F89B-45AB-43BF-8F8B-3B713FB37D62}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F2B1F89B-45AB-43BF-8F8B-3B713FB37D62}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B86898FA-2A89-493B-BB86-58CBA8EFAF59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B86898FA-2A89-493B-BB86-58CBA8EFAF59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B86898FA-2A89-493B-BB86-58CBA8EFAF59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B86898FA-2A89-493B-BB86-58CBA8EFAF59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0048791-051D-46D9-96D9-2984E414A0B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0048791-051D-46D9-96D9-2984E414A0B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0048791-051D-46D9-96D9-2984E414A0B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0048791-051D-46D9-96D9-2984E414A0B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AECFF322-4EC1-497F-ABBA-01D73C6C7B14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AECFF322-4EC1-497F-ABBA-01D73C6C7B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AECFF322-4EC1-497F-ABBA-01D73C6C7B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AECFF322-4EC1-497F-ABBA-01D73C6C7B14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32CCE192-EEAE-409F-94DE-A4FFA4BE9D76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32CCE192-EEAE-409F-94DE-A4FFA4BE9D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32CCE192-EEAE-409F-94DE-A4FFA4BE9D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32CCE192-EEAE-409F-94DE-A4FFA4BE9D76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23D2B96F-489C-48AB-B290-C04FBDE3315B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D2B96F-489C-48AB-B290-C04FBDE3315B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D2B96F-489C-48AB-B290-C04FBDE3315B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D2B96F-489C-48AB-B290-C04FBDE3315B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
