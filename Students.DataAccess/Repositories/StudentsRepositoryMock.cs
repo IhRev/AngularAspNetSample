@@ -3,7 +3,7 @@ using Students.Domain.Repositories;
 
 namespace Students.DataAccess.Repositories
 {
-    internal class StudentsRepositoryMock : IStudentsRepository
+    public class StudentsRepositoryMock : IStudentsRepository
     {
         private readonly List<StudentEntity> students = new List<StudentEntity>();
 

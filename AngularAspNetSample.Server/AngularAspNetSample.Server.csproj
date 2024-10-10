@@ -20,6 +20,7 @@
     <ProjectReference Include="..\angularaspnetsample.client\angularaspnetsample.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\Students.IoC\Students.IoC.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,10 +1,13 @@
+using Students.IoC;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.RegisterServices();
 WebApplication app = builder.Build();
-//app.UseDefaultFiles();
-//app.UseStaticFiles();
+app.UseDefaultFiles();
+app.UseStaticFiles();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -13,5 +16,5 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-//app.MapFallbackToFile("/index.html");
+app.MapFallbackToFile("/index.html");
 app.Run();

@@ -5,13 +5,13 @@ namespace AngularAspNetSample.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class StudentsController : ControllerBase
+    public class GroupsController : ControllerBase
     {
-        private readonly IStudentsService studentsService;
+        private readonly IGroupsService groupsService;
 
-        public StudentsController(IStudentsService studentsService)
+        public GroupsController(IGroupsService groupsService)
         {
-            this.studentsService = studentsService;
+            this.groupsService = groupsService;
         }
 
         [HttpGet]
