@@ -15,6 +15,6 @@ namespace Students.DataAccess.UnitsOfWork
             GroupsRepository = groupsRepository;
         }
 
-        public void Commit() { }
+        public Task CommitAsync() { return Task.CompletedTask; }
     }
 }

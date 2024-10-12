@@ -40,5 +40,11 @@ namespace Students.DataAccess.Repositories
             }
             return Task.CompletedTask;
         }
+
+        public Task DeleteAsync(StudentEntity studentEntity)
+        {
+            students.Remove(studentEntity);
+            return Task.CompletedTask;
+        }
     }
 }

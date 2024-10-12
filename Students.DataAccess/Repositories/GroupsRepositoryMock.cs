@@ -27,5 +27,16 @@ namespace Students.DataAccess.Repositories
             }
             return Task.CompletedTask;
         }
+
+        public Task<GroupEntity?> GetByIdAsync(int id)
+        {
+            return Task.FromResult(groups.Find(_ => _.Id == id));
+        }
+
+        public Task DeleteAsync(GroupEntity group)
+        {
+            groups.Remove(group);
+            return Task.CompletedTask;
+        }
     }
 } 

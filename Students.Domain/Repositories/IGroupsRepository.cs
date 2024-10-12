@@ -9,5 +9,9 @@ namespace Students.Domain.Repositories
         Task AddAsync(GroupEntity entity);
 
         Task UpdateAsync(GroupEntity entity);
+
+        Task<GroupEntity?> GetByIdAsync(int id);
+
+        Task DeleteAsync(GroupEntity group);
     }
 }

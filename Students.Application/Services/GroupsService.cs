@@ -1,7 +1,7 @@
-﻿using OneOf;
-using OneOf.Types;
+﻿using AutoMapper;
 using Students.Core.DTO;
 using Students.Core.Services;
+using Students.Domain.Entities;
 using Students.Domain.UnitsOfWork;
 
 namespace Students.Application.Services
@@ -9,25 +9,48 @@ namespace Students.Application.Services
     public class GroupsService : IGroupsService
     {
         private readonly IStudentsUnitOfWork studentsUnitOfWork;
+        private readonly IMapper mapper;
 
-        public GroupsService(IStudentsUnitOfWork studentsUnitOfWork)
+        public GroupsService(IStudentsUnitOfWork studentsUnitOfWork,  IMapper mapper)
         {
             this.studentsUnitOfWork = studentsUnitOfWork;
+            this.mapper = mapper;
         }
 
-        public Task<OneOf<Success>> AddAsync(GroupDTO entity)
+        public async Task AddAsync(GroupDTO group)
         {
-            throw new NotImplementedException();
+            GroupEntity groupEntity = mapper.Map<GroupEntity>(group);
+            await studentsUnitOfWork.GroupsRepository.AddAsync(groupEntity);
+            await studentsUnitOfWork.CommitAsync();
         }
 
-        public Task<IEnumerable<GroupDTO>> GetAllAsync()
+        public async Task<IEnumerable<GroupDTO>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            IEnumerable<GroupEntity> groups = await studentsUnitOfWork.GroupsRepository.GetAllAsync();
+            return mapper.Map<IEnumerable<GroupDTO>>(groups);
         }
 
-        public Task<OneOf<Success>> UpdateAsync(GroupDTO entity)
+        public async Task UpdateAsync(GroupDTO group)
         {
-            throw new NotImplementedException();
+            GroupEntity? groupEntity = await studentsUnitOfWork.GroupsRepository.GetByIdAsync(group.Id);
+            if (groupEntity == null)
+            {
+                return;
+            }
+            mapper.Map(group, groupEntity);
+            await studentsUnitOfWork.GroupsRepository.UpdateAsync(groupEntity);
+            await studentsUnitOfWork.CommitAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            GroupEntity? groupEntity = await studentsUnitOfWork.GroupsRepository.GetByIdAsync(id);
+            if (groupEntity == null)
+            {
+                return;
+            }
+            await studentsUnitOfWork.GroupsRepository.DeleteAsync(groupEntity);
+            await studentsUnitOfWork.CommitAsync();
         }
     }
 }

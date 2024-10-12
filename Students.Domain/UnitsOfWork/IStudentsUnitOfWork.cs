@@ -8,6 +8,6 @@ namespace Students.Domain.UnitsOfWork
 
         IGroupsRepository GroupsRepository { get; }
 
-        void Commit();
+        Task CommitAsync();
     }
 }

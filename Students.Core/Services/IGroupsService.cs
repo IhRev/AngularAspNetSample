@@ -1,6 +1,4 @@
-﻿using OneOf;
-using OneOf.Types;
-using Students.Core.DTO;
+﻿using Students.Core.DTO;
 
 namespace Students.Core.Services
 {
@@ -8,8 +6,10 @@ namespace Students.Core.Services
     {
         Task<IEnumerable<GroupDTO>> GetAllAsync();
 
-        Task<OneOf<Success>> AddAsync(GroupDTO entity);
+        Task AddAsync(GroupDTO group);
 
-        Task<OneOf<Success>> UpdateAsync(GroupDTO entity);
+        Task UpdateAsync(GroupDTO group);
+
+        Task DeleteAsync(int id);
     }
 }

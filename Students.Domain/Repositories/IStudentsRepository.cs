@@ -12,6 +12,8 @@ namespace Students.Domain.Repositories
 
         Task AddAsync(StudentEntity entity); 
 
-        Task UpdateAsync(StudentEntity entity); 
+        Task UpdateAsync(StudentEntity entity);
+
+        Task DeleteAsync(StudentEntity studentEntity);
     }
 }
