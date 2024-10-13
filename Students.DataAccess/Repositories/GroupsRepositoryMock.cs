@@ -5,12 +5,13 @@ namespace Students.DataAccess.Repositories
 {
     public class GroupsRepositoryMock : IGroupsRepository
     {
+        private int lastId = 0;
         private readonly List<GroupEntity> groups = new List<GroupEntity>();
 
-        public Task AddAsync(GroupEntity entity)
+        public Task<int> AddAsync(GroupEntity entity)
         {
             groups.Add(entity);
-            return Task.CompletedTask;
+            return Task.FromResult(++lastId);
         }
 
         public Task<IEnumerable<GroupEntity>> GetAllAsync()

@@ -6,7 +6,7 @@ namespace Students.Core.Services
     {
         Task<IEnumerable<GroupDTO>> GetAllAsync();
 
-        Task AddAsync(GroupDTO group);
+        Task<int> AddAsync(GroupDTO group);
 
         Task UpdateAsync(GroupDTO group);
 

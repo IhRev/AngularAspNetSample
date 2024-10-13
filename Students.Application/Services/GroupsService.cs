@@ -17,11 +17,12 @@ namespace Students.Application.Services
             this.mapper = mapper;
         }
 
-        public async Task AddAsync(GroupDTO group)
+        public async Task<int> AddAsync(GroupDTO group)
         {
             GroupEntity groupEntity = mapper.Map<GroupEntity>(group);
-            await studentsUnitOfWork.GroupsRepository.AddAsync(groupEntity);
+            int id = await studentsUnitOfWork.GroupsRepository.AddAsync(groupEntity);
             await studentsUnitOfWork.CommitAsync();
+            return id;
         }
 
         public async Task<IEnumerable<GroupDTO>> GetAllAsync()
