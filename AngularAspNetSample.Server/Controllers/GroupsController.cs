@@ -6,15 +6,9 @@ namespace AngularAspNetSample.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class GroupsController : StudentsControllerBase
+    public class GroupsController(IGroupsService groupsService) : StudentsControllerBase
     {
         private const string GetAllGroupsActionName = "GetAllGroups";
-        private readonly IGroupsService groupsService;
-
-        public GroupsController(IGroupsService groupsService)
-        {
-            this.groupsService = groupsService;
-        }
 
         [HttpGet(Name = GetAllGroupsActionName)]
         public async Task<ActionResult<IEnumerable<GroupDTO>>> Get()
@@ -62,8 +56,8 @@ namespace AngularAspNetSample.Server.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult> Delete([FromQuery] int id)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete([FromRoute] int id)
         {
             try
             {

@@ -4,7 +4,7 @@ namespace Students.Core.Services
 {
     public interface IStudentsService
     {
-        Task AddAsync(StudentCreateDTO student);
+        Task<int> AddAsync(StudentCreateDTO student);
 
         Task<IEnumerable<StudentDTO>> GetAllAsync();
 
@@ -13,5 +13,7 @@ namespace Students.Core.Services
         Task<StudentDTO?> GetByIdAsync(int id);
 
         Task UpdateAsync(StudentUpdateDTO student);
+
+        Task DeleteAsync(int id);
     }
 }

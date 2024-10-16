@@ -6,23 +6,14 @@ using Students.Domain.UnitsOfWork;
 
 namespace Students.Application.Services
 {
-    public class GroupsService : IGroupsService
+    public class GroupsService(IStudentsUnitOfWork studentsUnitOfWork, IMapper mapper) : IGroupsService
     {
-        private readonly IStudentsUnitOfWork studentsUnitOfWork;
-        private readonly IMapper mapper;
-
-        public GroupsService(IStudentsUnitOfWork studentsUnitOfWork,  IMapper mapper)
-        {
-            this.studentsUnitOfWork = studentsUnitOfWork;
-            this.mapper = mapper;
-        }
-
         public async Task<int> AddAsync(GroupDTO group)
         {
             GroupEntity groupEntity = mapper.Map<GroupEntity>(group);
-            int id = await studentsUnitOfWork.GroupsRepository.AddAsync(groupEntity);
+            await studentsUnitOfWork.GroupsRepository.AddAsync(groupEntity);
             await studentsUnitOfWork.CommitAsync();
-            return id;
+            return groupEntity.Id;
         }
 
         public async Task<IEnumerable<GroupDTO>> GetAllAsync()

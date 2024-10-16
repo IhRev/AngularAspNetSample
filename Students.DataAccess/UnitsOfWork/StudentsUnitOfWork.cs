@@ -3,17 +3,11 @@ using Students.Domain.UnitsOfWork;
 
 namespace Students.DataAccess.UnitsOfWork
 {
-    public class StudentsUnitOfWork : IStudentsUnitOfWork
+    public class StudentsUnitOfWork(IStudentsRepository studentsRepository, IGroupsRepository groupsRepository) : IStudentsUnitOfWork
     {
-        public IStudentsRepository StudentsRepository { get; }
+        public IStudentsRepository StudentsRepository { get; } = studentsRepository;
 
-        public IGroupsRepository GroupsRepository { get; }
-
-        public StudentsUnitOfWork(IStudentsRepository studentsRepository, IGroupsRepository groupsRepository)
-        {
-            StudentsRepository = studentsRepository;
-            GroupsRepository = groupsRepository;
-        }
+        public IGroupsRepository GroupsRepository { get; } = groupsRepository;
 
         public Task CommitAsync() { return Task.CompletedTask; }
     }

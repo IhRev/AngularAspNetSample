@@ -6,17 +6,8 @@ using Students.Domain.UnitsOfWork;
 
 namespace Students.Application.Services
 {
-    public class StudentsService : IStudentsService
+    public class StudentsService(IStudentsUnitOfWork studentsUnitOfWork, IMapper mapper) : IStudentsService
     {
-        private readonly IStudentsUnitOfWork studentsUnitOfWork;
-        private readonly IMapper mapper;
-
-        public StudentsService(IStudentsUnitOfWork studentsUnitOfWork, IMapper mapper)
-        {
-            this.studentsUnitOfWork = studentsUnitOfWork;
-            this.mapper = mapper;
-        }
-
         public async Task<IEnumerable<StudentDTO>> GetAllAsync()
         {
             IEnumerable<StudentEntity> students = await studentsUnitOfWork.StudentsRepository.GetAllAsync();
@@ -35,11 +26,12 @@ namespace Students.Application.Services
             return mapper.Map<IEnumerable<StudentDTO>>(students);
         }
 
-        public async Task AddAsync(StudentCreateDTO student)
+        public async Task<int> AddAsync(StudentCreateDTO student)
         {
             StudentEntity studentEntity = mapper.Map<StudentEntity>(student);
             await studentsUnitOfWork.StudentsRepository.AddAsync(studentEntity);
             await studentsUnitOfWork.CommitAsync();
+            return studentEntity.Id;
         }
 
         public async Task UpdateAsync(StudentUpdateDTO student)

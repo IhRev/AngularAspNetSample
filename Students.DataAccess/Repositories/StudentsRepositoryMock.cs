@@ -5,11 +5,13 @@ namespace Students.DataAccess.Repositories
 {
     public class StudentsRepositoryMock : IStudentsRepository
     {
-        private readonly List<StudentEntity> students = new List<StudentEntity>();
+        private int lastId = 0;
+        private readonly List<StudentEntity> students = [];
 
         public Task AddAsync(StudentEntity entity)
         {
             students.Add(entity);
+            entity.Id = ++lastId;
             return Task.CompletedTask;
         }
 

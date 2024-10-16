@@ -6,7 +6,7 @@ namespace Students.Domain.Repositories
     {
         Task<IEnumerable<GroupEntity>> GetAllAsync();
 
-        Task<int> AddAsync(GroupEntity entity);
+        Task AddAsync(GroupEntity entity);
 
         Task UpdateAsync(GroupEntity entity);
 
