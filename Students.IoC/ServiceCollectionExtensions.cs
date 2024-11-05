@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Students.Application.Mappings;
 using Students.Application.Services;
 using Students.Core.Services;
 using Students.DataAccess.Repositories;
@@ -18,6 +19,7 @@ namespace Students.IoC
             serviceCollection.AddScoped<IStudentsService, StudentsService>();
             serviceCollection.AddScoped<IStudentsService, StudentsService>();
             serviceCollection.AddScoped<IGroupsService, GroupsService>();
+            serviceCollection.AddAutoMapper(typeof(StudentProfile), typeof(GroupsProfile));
         }
     }
 }

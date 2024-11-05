@@ -1,0 +1,7 @@
+<h3>Students</h3>
+<p *ngIf="!students">Loading</p>
+<ul *ngIf="students" id="students">
+  <li *ngFor="let student of students">
+    <app-student [student]="student" />
+  </li>
+</ul>

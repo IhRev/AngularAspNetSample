@@ -5,10 +5,10 @@ using Students.Core.Services;
 namespace AngularAspNetSample.Server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("students")]
     public class StudentsController(IStudentsService studentsService) : StudentsControllerBase
     {
-        private const string GetStudentByIdActionName = "GetAllGroups";
+        private const string GetStudentByIdActionName = "GetStudentById";
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<StudentDTO>>> Get()
@@ -22,7 +22,7 @@ namespace AngularAspNetSample.Server.Controllers
                 }
                 return NoContent();
             }
-            catch (Exception e)
+            catch (Exception e) 
             {
                 return HandleException(e);
             }

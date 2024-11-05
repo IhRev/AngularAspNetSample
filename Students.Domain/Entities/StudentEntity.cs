@@ -12,7 +12,7 @@ namespace Students.Domain.Entities
         [Required(AllowEmptyStrings = false)]
         public string LastName { get; set; } = string.Empty;
 
-        public int Age { get; set; }
+        public DateTimeOffset DateOfBirth { get; set; }
 
         public int GroupId { get; set; }
 

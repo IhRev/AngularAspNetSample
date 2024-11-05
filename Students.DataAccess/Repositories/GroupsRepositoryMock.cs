@@ -6,7 +6,7 @@ namespace Students.DataAccess.Repositories
     public class GroupsRepositoryMock : IGroupsRepository
     {
         private int lastId = 0;
-        private readonly List<GroupEntity> groups = [];
+        private readonly List<GroupEntity> groups = new List<GroupEntity>() { new GroupEntity() { Id = 1, Name = "IT-681" }, new GroupEntity() { Id = 2, Name = "IT-682" } };
 
         public Task AddAsync(GroupEntity entity)
         {

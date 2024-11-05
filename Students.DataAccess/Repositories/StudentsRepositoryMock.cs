@@ -6,7 +6,7 @@ namespace Students.DataAccess.Repositories
     public class StudentsRepositoryMock : IStudentsRepository
     {
         private int lastId = 0;
-        private readonly List<StudentEntity> students = [];
+        private readonly List<StudentEntity> students = new List<StudentEntity>();
 
         public Task AddAsync(StudentEntity entity)
         {
@@ -35,7 +35,7 @@ namespace Students.DataAccess.Repositories
             StudentEntity? student = students.Find(_ => _.Id == entity.Id);
             if (student != null)
             {
-                student.Age = entity.Age;
+                student.DateOfBirth = entity.DateOfBirth;
                 student.FirstName = entity.FirstName;
                 student.LastName = entity.LastName;
                 student.GroupId = entity.GroupId;

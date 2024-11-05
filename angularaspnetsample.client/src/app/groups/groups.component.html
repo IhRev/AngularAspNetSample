@@ -1,0 +1,7 @@
+<h3>Groups</h3>
+<p *ngIf="!groups">Loading</p>
+<ul *ngIf="groups" id="groups">
+  <li *ngFor="let group of groups">
+    <app-group [group]="group" (groupSelected)="groupSelected($event)"/>
+  </li>
+</ul>
